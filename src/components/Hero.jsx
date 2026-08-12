@@ -1,10 +1,10 @@
 function Hero() {
   return (
     <section className="mx-auto flex min-h-[calc(100vh-73px)] max-w-6xl items-center px-6 py-16">
-      <div className="grid w-full items-center gap-16 md:grid-cols-2">
+      <div className="grid w-full items-center gap-12 md:grid-cols-2 md:gap-16">
 
         {/* Text */}
-        <div>
+        <div className="order-2 md:order-1">
           <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-violet-400">
             Hi, I'm
           </p>
@@ -44,7 +44,7 @@ function Hero() {
         </div>
 
         {/* Photo */}
-        <div className="flex justify-center md:justify-end">
+        <div className="order-1 flex justify-center md:order-2 md:justify-end">
           <div className="relative">
             <div className="absolute -inset-2 rounded-3xl bg-violet-500/10 blur-2xl" />
 

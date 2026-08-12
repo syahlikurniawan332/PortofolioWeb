@@ -1,6 +1,9 @@
-import projects from '../data/projects'
+import { useState } from "react";
+import projects from "../data/projects";
+import ProjectDetail from "./ProjectDetail";
 
 function Projects() {
+  const [selectedProject, setSelectedProject] = useState(null);
   return (
     <section id="projects" className="mx-auto max-w-6xl px-6 py-24">
       {/* Section Header */}
@@ -14,9 +17,8 @@ function Projects() {
         </h2>
 
         <p className="mt-4 text-zinc-400">
-          A selection of academic, personal, and collaborative projects
-          that represent my experience in web development and software
-          engineering.
+          A selection of academic, personal, and collaborative projects that
+          represent my experience in web development and software engineering.
         </p>
       </div>
 
@@ -28,16 +30,13 @@ function Projects() {
             className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50"
           >
             {/* Project Preview */}
-            <div className="flex h-56 items-center justify-center border-b border-zinc-800 bg-zinc-950">
-              <div className="text-center">
-                <p className="text-sm text-zinc-500">
-                  Project Preview
-                </p>
-
-                <p className="mt-1 text-xs text-zinc-600">
-                  Screenshot coming soon
-                </p>
-              </div>
+            {/* Project Preview */}
+            <div className="h-56 overflow-hidden border-b border-zinc-800 bg-zinc-950">
+              <img
+                src={project.image}
+                alt={`${project.title} preview`}
+                className="h-full w-full object-cover"
+              />
             </div>
 
             {/* Project Content */}
@@ -45,7 +44,7 @@ function Projects() {
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p className="text-sm font-medium text-violet-400">
-                    {String(project.id).padStart(2, '0')}
+                    {String(project.id).padStart(2, "0")}
                   </p>
 
                   <h3 className="mt-2 text-xl font-semibold text-zinc-100">
@@ -86,6 +85,7 @@ function Projects() {
 
                 <button
                   type="button"
+                  onClick={() => setSelectedProject(project)}
                   className="text-sm font-medium text-violet-400 transition-colors hover:text-violet-300"
                 >
                   View Details →
@@ -95,8 +95,14 @@ function Projects() {
           </article>
         ))}
       </div>
+      {selectedProject && (
+        <ProjectDetail
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </section>
-  )
+  );
 }
 
-export default Projects
+export default Projects;

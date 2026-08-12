@@ -1,9 +1,12 @@
 @import "tailwindcss";
 
+/* Dark mode menggunakan class .dark pada <html> */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   font-family: Inter, system-ui, sans-serif;
-  color: #f4f4f5;
-  background: #18181b;
+  color: #0f172a;
+  background: #f8fafc;
 }
 
 html {
@@ -13,5 +16,16 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background: #18181b;
+  background: #f8fafc;
+  color: #0f172a;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Dark Mode */
+html.dark,
+html.dark body {
+  background: #111827;
+  color: #f1f5f9;
 }
