@@ -49,7 +49,7 @@ function Contact() {
           <div className="mt-10 grid gap-3 md:grid-cols-3">
             {/* Email */}
             <a
-              href="mailto:emailkamu@example.com"
+              href="mailto:syahlikurniawan332@gmail.com"
               className="group rounded-2xl border border-slate-200 bg-white/80 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-violet-200 hover:shadow-xl hover:shadow-violet-500/5 dark:border-slate-700 dark:bg-slate-800/50 dark:hover:border-violet-500/30"
             >
               <div className="flex items-start justify-between">
@@ -73,7 +73,7 @@ function Contact() {
 
             {/* GitHub */}
             <a
-              href="https://github.com/"
+              href="https://github.com/syahlikurniawan"
               target="_blank"
               rel="noreferrer"
               className="group rounded-2xl border border-slate-200 bg-white/80 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-violet-200 hover:shadow-xl hover:shadow-violet-500/5 dark:border-slate-700 dark:bg-slate-800/50 dark:hover:border-violet-500/30"
@@ -99,7 +99,7 @@ function Contact() {
 
             {/* LinkedIn */}
             <a
-              href="https://www.linkedin.com/"
+              href="https://www.linkedin.com/in/syahlikurniawan/"
               target="_blank"
               rel="noreferrer"
               className="group rounded-2xl border border-slate-200 bg-white/80 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-violet-200 hover:shadow-xl hover:shadow-violet-500/5 dark:border-slate-700 dark:bg-slate-800/50 dark:hover:border-violet-500/30"
