@@ -207,18 +207,32 @@ function ProjectDetail({ project, onClose }) {
                 </div>
               </div>
 
-              {/* GitHub */}
-              {project.github && (
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-violet-600 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-violet-500 hover:shadow-lg hover:shadow-violet-500/20"
-                >
-                  View on GitHub
-                  <span>↗</span>
-                </a>
-              )}
+              {/* Project Links */}
+              <div className="flex flex-wrap gap-3">
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 px-5 py-2.5 text-sm font-medium text-slate-700 transition-all hover:border-violet-300 hover:text-violet-600 dark:border-slate-700 dark:text-slate-200 dark:hover:border-violet-500/40 dark:hover:text-violet-300"
+                  >
+                    GitHub
+                    <span>↗</span>
+                  </a>
+                )}
+
+                {project.demo && (
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-violet-600 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-violet-500 hover:shadow-lg hover:shadow-violet-500/20"
+                  >
+                    Live Demo
+                    <span>↗</span>
+                  </a>
+                )}
+              </div>
             </div>
           </section>
         </div>

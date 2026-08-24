@@ -104,23 +104,42 @@ function Projects() {
               {/* Bottom */}
               <div className="mt-6 flex items-center justify-between border-t border-slate-200 pt-5 dark:border-slate-800">
                 <div className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-violet-500" />
+                  <span
+                    className={`h-2 w-2 rounded-full ${
+                      project.status === "Live"
+                        ? "bg-emerald-500"
+                        : "bg-violet-500"
+                    }`}
+                  />
 
                   <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
                     {project.status}
                   </span>
                 </div>
 
-                <button
-                  type="button"
-                  onClick={() => setSelectedProject(project)}
-                  className="group/button inline-flex items-center gap-2 text-sm font-semibold text-violet-600 transition-colors hover:text-violet-500 dark:text-violet-400 dark:hover:text-violet-300"
-                >
-                  View Details
-                  <span className="transition-transform duration-300 group-hover/button:translate-x-1">
-                    →
-                  </span>
-                </button>
+                <div className="flex items-center gap-4">
+                  {project.demo && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-sm font-semibold text-emerald-600 transition-colors hover:text-emerald-500 dark:text-emerald-400 dark:hover:text-emerald-300"
+                    >
+                      Live Demo ↗
+                    </a>
+                  )}
+
+                  <button
+                    type="button"
+                    onClick={() => setSelectedProject(project)}
+                    className="group/button inline-flex items-center gap-2 text-sm font-semibold text-violet-600 transition-colors hover:text-violet-500 dark:text-violet-400 dark:hover:text-violet-300"
+                  >
+                    View Details
+                    <span className="transition-transform duration-300 group-hover/button:translate-x-1">
+                      →
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </article>
