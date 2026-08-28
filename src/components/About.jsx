@@ -1,164 +1,93 @@
 function About() {
   return (
-    <section
-      id="about"
-      className="relative mx-auto max-w-6xl overflow-hidden px-6 py-24"
-    >
-      {/* Ambient background */}
-      <div className="pointer-events-none absolute -left-32 top-20 -z-10 h-72 w-72 rounded-full bg-violet-500/5 blur-3xl dark:bg-violet-500/10" />
-
-      <div className="pointer-events-none absolute -right-32 bottom-10 -z-10 h-72 w-72 rounded-full bg-indigo-400/5 blur-3xl dark:bg-indigo-500/10" />
-
-      {/* Section heading */}
-      <div className="grid gap-12 md:grid-cols-[0.85fr_1.15fr] md:gap-20">
-        {/* Left */}
+    <section id="about" className="mx-auto max-w-6xl px-6 py-24 md:py-32">
+      <div className="grid gap-12 border-b border-[#d8d2c5] pb-14 md:grid-cols-[0.8fr_1.2fr] md:gap-20 dark:border-[#344238]">
         <div>
           <div className="flex items-center gap-3">
-            <span className="h-px w-8 bg-violet-500" />
+            <span className="h-px w-8 bg-[#a85f3c] dark:bg-[#d99167]" />
 
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-violet-600 dark:text-violet-400">
-              About Me
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#667066] dark:text-[#aeb8af]">
+              About
             </p>
           </div>
 
-          <h2 className="mt-5 text-3xl font-bold leading-tight tracking-tight text-slate-950 md:text-4xl lg:text-5xl dark:text-slate-100">
-            Building practical web applications with a{" "}
-            <span className="bg-gradient-to-r from-violet-600 to-indigo-500 bg-clip-text text-transparent">
-              continuous learning mindset.
+          <h2 className="mt-6 text-3xl font-semibold leading-tight tracking-[-0.04em] text-[#263128] md:text-5xl dark:text-[#ebe8df]">
+            Learning by building
+            <span className="block text-[#405a45] dark:text-[#91a894]">
+              practical solutions.
             </span>
           </h2>
-
-          {/* Academic highlight */}
-          <div className="mt-8 flex items-center gap-4">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-violet-200 bg-violet-50 dark:border-violet-500/20 dark:bg-violet-500/10">
-              <span className="text-xl font-bold text-violet-600 dark:text-violet-400">
-                3.53
-              </span>
-            </div>
-
-            <div>
-              <p className="text-sm font-medium text-slate-800 dark:text-slate-200">
-                Academic Achievement
-              </p>
-
-              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-                GPA · D4 Teknik Informatika
-              </p>
-            </div>
-          </div>
         </div>
 
-        {/* Right - Description */}
-        <div className="space-y-5 text-base leading-7 text-slate-600 dark:text-slate-400">
+        <div className="space-y-5 text-base leading-8 text-[#667066] dark:text-[#aeb8af]">
           <p>
-            Saya merupakan lulusan D4 Teknik Informatika dari Politeknik
-            Negeri Lhokseumawe dengan IPK 3,53. Saya memiliki pengalaman
-            dalam pengembangan aplikasi web, administrasi data, dukungan
-            operasional, serta pelayanan pengguna.
+            I am an Applied Bachelor of Informatics Engineering graduate from
+            Politeknik Negeri Lhokseumawe with a GPA of 3.53. My experience
+            spans web development, data administration, operational support,
+            and user-facing services.
           </p>
 
           <p>
-            Saat ini saya bekerja sebagai Programmer di Balai Diklat Industri
-            Medan, dengan fokus pada pengembangan dan pemeliharaan aplikasi web.
-            Saya menggunakan teknologi seperti PHP, Laravel, JavaScript, MySQL,
-            dan Git dalam proses pengembangan.
+            I am currently gaining professional experience as a Programmer
+            Intern at Balai Diklat Industri Medan, where I contribute to web
+            application development, system improvements, testing, and
+            deployment.
           </p>
 
           <p>
-            Saat ini saya berfokus memperdalam kemampuan di bidang web
-            development, sekaligus mulai mempelajari Linux dan DevOps untuk
-            memahami proses pengembangan dan deployment aplikasi secara lebih
-            menyeluruh.
+            My current focus is strengthening my web development fundamentals
+            while expanding my understanding of Linux, deployment workflows,
+            and DevOps practices.
           </p>
         </div>
       </div>
 
-      {/* Profile snapshot */}
-      <div className="mt-16">
-        <div className="mb-5 flex items-center justify-between">
-          <p className="font-mono text-xs uppercase tracking-[0.18em] text-slate-400 dark:text-slate-500">
-            Profile Snapshot
-          </p>
+      <div className="grid gap-0 sm:grid-cols-3">
+        {[
+          {
+            number: "01",
+            label: "Education",
+            value: "Applied Bachelor in Informatics Engineering",
+            detail: "Politeknik Negeri Lhokseumawe · GPA 3.53",
+          },
+          {
+            number: "02",
+            label: "Current Role",
+            value: "Programmer Intern",
+            detail: "Balai Diklat Industri Medan",
+          },
+          {
+            number: "03",
+            label: "Current Focus",
+            value: "Web Development",
+            detail: "Learning Linux & DevOps",
+          },
+        ].map((item, index) => (
+          <div
+            key={item.number}
+            className={`py-8 sm:px-7 ${
+              index !== 2
+                ? "border-b border-[#d8d2c5] sm:border-b-0 sm:border-r dark:border-[#344238]"
+                : ""
+            }`}
+          >
+            <span className="font-mono text-xs text-[#a85f3c] dark:text-[#d99167]">
+              {item.number}
+            </span>
 
-          <span className="hidden h-px flex-1 bg-slate-200 sm:ml-6 sm:block dark:bg-slate-800" />
-        </div>
-
-        <div className="grid gap-4 sm:grid-cols-3">
-          {/* Education */}
-          <div className="group rounded-2xl border border-slate-200 bg-white/70 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-violet-200 hover:shadow-xl hover:shadow-violet-500/5 dark:border-slate-800 dark:bg-slate-900/50 dark:hover:border-violet-500/30">
-            <div className="flex items-start justify-between">
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 text-sm font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
-                01
-              </span>
-
-              <span className="text-xl text-slate-300 transition-colors group-hover:text-violet-500 dark:text-slate-700">
-                ↗
-              </span>
-            </div>
-
-            <p className="mt-6 text-xs font-medium uppercase tracking-wider text-slate-400 dark:text-slate-500">
-              Education
+            <p className="mt-5 text-xs font-semibold uppercase tracking-[0.15em] text-[#8d8b82] dark:text-[#78847a]">
+              {item.label}
             </p>
 
-            <p className="mt-2 font-semibold text-slate-900 dark:text-slate-100">
-              D4 Teknik Informatika
+            <p className="mt-2 font-semibold leading-6 text-[#263128] dark:text-[#ebe8df]">
+              {item.value}
             </p>
 
-            <p className="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-400">
-              Politeknik Negeri Lhokseumawe
-            </p>
-          </div>
-
-          {/* Current Role */}
-          <div className="group rounded-2xl border border-slate-200 bg-white/70 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-violet-200 hover:shadow-xl hover:shadow-violet-500/5 dark:border-slate-800 dark:bg-slate-900/50 dark:hover:border-violet-500/30">
-            <div className="flex items-start justify-between">
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 text-sm font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
-                02
-              </span>
-
-              <span className="text-xl text-slate-300 transition-colors group-hover:text-violet-500 dark:text-slate-700">
-                ↗
-              </span>
-            </div>
-
-            <p className="mt-6 text-xs font-medium uppercase tracking-wider text-slate-400 dark:text-slate-500">
-              Current Role
-            </p>
-
-            <p className="mt-2 font-semibold text-slate-900 dark:text-slate-100">
-              Programmer
-            </p>
-
-            <p className="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-400">
-              Balai Diklat Industri Medan
+            <p className="mt-2 text-sm leading-6 text-[#667066] dark:text-[#aeb8af]">
+              {item.detail}
             </p>
           </div>
-
-          {/* Current Focus */}
-          <div className="group rounded-2xl border border-slate-200 bg-white/70 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-violet-200 hover:shadow-xl hover:shadow-violet-500/5 dark:border-slate-800 dark:bg-slate-900/50 dark:hover:border-violet-500/30">
-            <div className="flex items-start justify-between">
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 text-sm font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
-                03
-              </span>
-
-              <span className="text-xl text-slate-300 transition-colors group-hover:text-violet-500 dark:text-slate-700">
-                ↗
-              </span>
-            </div>
-
-            <p className="mt-6 text-xs font-medium uppercase tracking-wider text-slate-400 dark:text-slate-500">
-              Current Focus
-            </p>
-
-            <p className="mt-2 font-semibold text-slate-900 dark:text-slate-100">
-              Web Development
-            </p>
-
-            <p className="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-400">
-              Exploring Linux &amp; DevOps
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );

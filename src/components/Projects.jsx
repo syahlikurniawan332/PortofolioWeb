@@ -1,160 +1,99 @@
-import { useState } from "react";
-import projects from "../data/projects";
-import ProjectDetail from "./ProjectDetail";
-
-function Projects() {
-  const [selectedProject, setSelectedProject] = useState(null);
+function Contact() {
+  const contacts = [
+    {
+      label: "Email",
+      description: "Send me a message",
+      value: "syahlikurniawan332@gmail.com",
+      href: "mailto:syahlikurniawan332@gmail.com",
+    },
+    {
+      label: "GitHub",
+      description: "Explore my repositories",
+      value: "github.com/syahlikurniawan",
+      href: "https://github.com/syahlikurniawan",
+    },
+    {
+      label: "LinkedIn",
+      description: "Connect professionally",
+      value: "linkedin.com/in/syahlikurniawan",
+      href: "https://www.linkedin.com/in/syahlikurniawan",
+    },
+  ];
 
   return (
-    <section
-      id="projects"
-      className="relative mx-auto max-w-6xl overflow-hidden px-6 py-24"
-    >
-      {/* Ambient background */}
-      <div className="pointer-events-none absolute -right-40 top-20 -z-10 h-96 w-96 rounded-full bg-violet-500/5 blur-3xl dark:bg-violet-500/10" />
+    <section id="contact" className="mx-auto max-w-6xl px-6 py-24 md:py-32">
+      <div className="rounded-[2rem] bg-[#405a45] px-7 py-10 md:px-12 md:py-14 dark:bg-[#263229]">
+        <div className="grid gap-10 md:grid-cols-[1.15fr_0.85fr] md:gap-16">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#d5ddcf] dark:text-[#91a894]">
+              Contact
+            </p>
 
-      {/* Section Header */}
-      <div className="max-w-2xl">
-        <div className="flex items-center gap-3">
-          <span className="h-px w-8 bg-violet-500" />
+            <h2 className="mt-5 max-w-2xl text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-white md:text-6xl">
+              Have an opportunity
+              <span className="block text-[#e6b493]">
+                worth discussing?
+              </span>
+            </h2>
 
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-violet-600 dark:text-violet-400">
-            Projects
-          </p>
+            <p className="mt-6 max-w-xl leading-7 text-[#d7ded7]">
+              I am open to software development opportunities, collaborative
+              projects, and conversations around building practical digital
+              products.
+            </p>
+          </div>
+
+          <div className="flex items-end">
+            <a
+              href="mailto:syahlikurniawan332@gmail.com"
+              className="group inline-flex items-center gap-4 rounded-full bg-[#f3efe6] px-6 py-3 text-sm font-semibold text-[#263128] transition-transform hover:-translate-y-0.5"
+            >
+              Start a conversation
+              <span className="transition-transform group-hover:translate-x-1">
+                →
+              </span>
+            </a>
+          </div>
         </div>
 
-        <h2 className="mt-5 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl dark:text-slate-100">
-          Selected{" "}
-          <span className="bg-gradient-to-r from-violet-600 to-indigo-500 bg-clip-text text-transparent">
-            projects.
-          </span>
-        </h2>
+        <div className="mt-12 grid border-t border-white/20 md:grid-cols-3">
+          {contacts.map((contact, index) => (
+            <a
+              key={contact.label}
+              href={contact.href}
+              target={contact.label === "Email" ? undefined : "_blank"}
+              rel={contact.label === "Email" ? undefined : "noreferrer"}
+              className={`group py-6 md:px-6 ${
+                index !== contacts.length - 1
+                  ? "border-b border-white/20 md:border-b-0 md:border-r"
+                  : ""
+              }`}
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-sm font-semibold text-white">
+                    {contact.label}
+                  </p>
 
-        <p className="mt-4 text-slate-600 dark:text-slate-400">
-          A selection of academic, personal, and collaborative projects that
-          represent my experience in web development and software engineering.
-        </p>
-      </div>
+                  <p className="mt-1 text-xs text-[#c4cec5]">
+                    {contact.description}
+                  </p>
 
-      {/* Project Cards */}
-      <div className="mt-14 grid gap-7 md:grid-cols-2">
-        {projects.map((project) => (
-          <article
-            key={project.id}
-            className="group overflow-hidden rounded-2xl border border-slate-200 bg-white/70 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-violet-200 hover:shadow-2xl hover:shadow-violet-500/5 dark:border-slate-800 dark:bg-slate-900/50 dark:hover:border-violet-500/30"
-          >
-            {/* Project Image */}
-            <div className="relative h-60 overflow-hidden border-b border-slate-200 bg-slate-100 dark:border-slate-800 dark:bg-slate-950">
-              <img
-                src={project.image}
-                alt={`${project.title} preview`}
-                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-              />
-
-              {/* Image overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-70" />
-
-              {/* Project number */}
-              <div className="absolute left-5 top-5 flex items-center gap-2">
-                <span className="rounded-lg border border-white/20 bg-slate-950/60 px-3 py-1.5 font-mono text-xs font-medium text-white backdrop-blur">
-                  {String(project.id).padStart(2, "0")}
-                </span>
-
-                <span className="rounded-lg border border-white/20 bg-slate-950/60 px-3 py-1.5 text-xs text-slate-200 backdrop-blur">
-                  {project.category}
-                </span>
-              </div>
-
-              {/* Type */}
-              <span className="absolute bottom-5 right-5 rounded-full border border-white/20 bg-slate-950/60 px-3 py-1.5 text-xs font-medium text-white backdrop-blur">
-                {project.type}
-              </span>
-            </div>
-
-            {/* Project Content */}
-            <div className="p-6 md:p-7">
-              {/* Title */}
-              <div>
-                <h3 className="text-xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
-                  {project.title}
-                </h3>
-
-                <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-                  {project.subtitle}
-                </p>
-              </div>
-
-              {/* Description */}
-              <p className="mt-5 line-clamp-3 text-sm leading-7 text-slate-600 dark:text-slate-400">
-                {project.description}
-              </p>
-
-              {/* Technologies */}
-              <div className="mt-5 flex flex-wrap gap-2">
-                {project.technologies.map((technology) => (
-                  <span
-                    key={technology}
-                    className="rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1.5 text-xs font-medium text-slate-600 transition-colors hover:border-violet-200 hover:bg-violet-50 hover:text-violet-600 dark:border-slate-700 dark:bg-slate-800/70 dark:text-slate-300 dark:hover:border-violet-500/30 dark:hover:bg-violet-500/10 dark:hover:text-violet-300"
-                  >
-                    {technology}
-                  </span>
-                ))}
-              </div>
-
-              {/* Bottom */}
-              <div className="mt-6 flex items-center justify-between border-t border-slate-200 pt-5 dark:border-slate-800">
-                <div className="flex items-center gap-2">
-                  <span
-                    className={`h-2 w-2 rounded-full ${
-                      project.status === "Live"
-                        ? "bg-emerald-500"
-                        : "bg-violet-500"
-                    }`}
-                  />
-
-                  <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
-                    {project.status}
-                  </span>
+                  <p className="mt-4 break-all text-sm text-[#e6b493]">
+                    {contact.value}
+                  </p>
                 </div>
 
-                <div className="flex items-center gap-4">
-                  {project.demo && (
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-sm font-semibold text-emerald-600 transition-colors hover:text-emerald-500 dark:text-emerald-400 dark:hover:text-emerald-300"
-                    >
-                      Live Demo ↗
-                    </a>
-                  )}
-
-                  <button
-                    type="button"
-                    onClick={() => setSelectedProject(project)}
-                    className="group/button inline-flex items-center gap-2 text-sm font-semibold text-violet-600 transition-colors hover:text-violet-500 dark:text-violet-400 dark:hover:text-violet-300"
-                  >
-                    View Details
-                    <span className="transition-transform duration-300 group-hover/button:translate-x-1">
-                      →
-                    </span>
-                  </button>
-                </div>
+                <span className="text-[#e6b493] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
+                  ↗
+                </span>
               </div>
-            </div>
-          </article>
-        ))}
+            </a>
+          ))}
+        </div>
       </div>
-
-      {/* Project Detail Modal */}
-      {selectedProject && (
-        <ProjectDetail
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
-      )}
     </section>
   );
 }
 
-export default Projects;
+export default Contact;

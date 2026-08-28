@@ -2,99 +2,83 @@ const skillGroups = [
   {
     number: "01",
     title: "Frontend",
-    description: "Building responsive and interactive web interfaces.",
+    description: "Building responsive and accessible web interfaces.",
     skills: ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"],
   },
   {
     number: "02",
     title: "Backend",
-    description: "Developing web applications and application logic.",
+    description: "Developing application logic and server-side workflows.",
     skills: ["PHP", "Laravel"],
   },
   {
     number: "03",
     title: "Database & Tools",
-    description: "Managing data and software development workflow.",
+    description: "Managing data and maintaining development workflows.",
     skills: ["MySQL", "Git", "GitHub"],
   },
   {
     number: "04",
-    title: "Other Experience",
-    description: "Technologies used in academic and project work.",
+    title: "Additional Experience",
+    description: "Technologies explored through academic and personal work.",
     skills: ["Python", "Machine Learning", "NLP"],
   },
 ];
 
 function Skills() {
   return (
-    <section
-      id="skills"
-      className="relative mx-auto max-w-6xl overflow-hidden px-6 py-24"
-    >
-      {/* Ambient background */}
-      <div className="pointer-events-none absolute -right-40 top-20 -z-10 h-80 w-80 rounded-full bg-violet-500/5 blur-3xl dark:bg-violet-500/10" />
+    <section id="skills" className="mx-auto max-w-6xl px-6 py-24 md:py-32">
+      <div className="grid gap-8 md:grid-cols-[0.8fr_1.2fr]">
+        <div>
+          <div className="flex items-center gap-3">
+            <span className="h-px w-8 bg-[#a85f3c] dark:bg-[#d99167]" />
 
-      {/* Header */}
-      <div className="max-w-2xl">
-        <div className="flex items-center gap-3">
-          <span className="h-px w-8 bg-violet-500" />
-
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-violet-600 dark:text-violet-400">
-            Skills
-          </p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#667066] dark:text-[#aeb8af]">
+              Skills
+            </p>
+          </div>
         </div>
 
-        <h2 className="mt-5 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl dark:text-slate-100">
-          Technologies I{" "}
-          <span className="bg-gradient-to-r from-violet-600 to-indigo-500 bg-clip-text text-transparent">
-            work with.
-          </span>
-        </h2>
+        <div>
+          <h2 className="text-3xl font-semibold tracking-[-0.04em] text-[#263128] md:text-5xl dark:text-[#ebe8df]">
+            Tools I use to turn
+            <span className="block text-[#405a45] dark:text-[#91a894]">
+              ideas into working software.
+            </span>
+          </h2>
 
-        <p className="mt-4 text-slate-600 dark:text-slate-400">
-          A selection of technologies and tools I have used across
-          professional, academic, and personal projects.
-        </p>
+          <p className="mt-5 max-w-xl leading-7 text-[#667066] dark:text-[#aeb8af]">
+            Technologies I have worked with across professional, academic, and
+            personal projects.
+          </p>
+        </div>
       </div>
 
-      {/* Skills Grid */}
-      <div className="mt-12 grid gap-5 md:grid-cols-2">
+      <div className="mt-14 border-t border-[#d8d2c5] dark:border-[#344238]">
         {skillGroups.map((group) => (
           <div
             key={group.title}
-            className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white/70 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-violet-200 hover:shadow-xl hover:shadow-violet-500/5 dark:border-slate-800 dark:bg-slate-900/50 dark:hover:border-violet-500/30"
+            className="grid gap-5 border-b border-[#d8d2c5] py-8 md:grid-cols-[100px_1fr_1.2fr] md:items-start dark:border-[#344238]"
           >
-            {/* Hover accent */}
-            <div className="absolute left-0 top-0 h-full w-0.5 bg-violet-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <span className="font-mono text-xs text-[#a85f3c] dark:text-[#d99167]">
+              {group.number}
+            </span>
 
-            {/* Card Header */}
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <p className="font-mono text-xs text-violet-500 dark:text-violet-400">
-                  {group.number}
-                </p>
+            <div>
+              <h3 className="text-lg font-semibold text-[#263128] dark:text-[#ebe8df]">
+                {group.title}
+              </h3>
 
-                <h3 className="mt-2 text-xl font-semibold text-slate-900 dark:text-slate-100">
-                  {group.title}
-                </h3>
-              </div>
-
-              <span className="text-xl text-slate-300 transition-colors duration-300 group-hover:text-violet-500 dark:text-slate-700">
-                ↗
-              </span>
+              <p className="mt-2 max-w-sm text-sm leading-6 text-[#667066] dark:text-[#aeb8af]">
+                {group.description}
+              </p>
             </div>
 
-            {/* Description */}
-            <p className="mt-3 max-w-md text-sm leading-6 text-slate-500 dark:text-slate-400">
-              {group.description}
-            </p>
-
-            {/* Technologies */}
-            <div className="mt-6 flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2">
               {group.skills.map((skill) => (
                 <span
                   key={skill}
-                  className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-medium text-slate-600 transition-all duration-200 hover:border-violet-200 hover:bg-violet-50 hover:text-violet-600 dark:border-slate-700 dark:bg-slate-800/70 dark:text-slate-300 dark:hover:border-violet-500/30 dark:hover:bg-violet-500/10 dark:hover:text-violet-300"
+                  className="rounded-full border border-[#d2ccbf] px-3 py-1.5 text-sm text-[#566159] transition-colors hover:border-[#405a45] hover:text-[#405a45] dark:border-[#405044] dark:text-[#b7c0b8] dark:hover:border-[#91a894] dark:hover:text-[#91a894]"
                 >
                   {skill}
                 </span>
@@ -102,16 +86,6 @@ function Skills() {
             </div>
           </div>
         ))}
-      </div>
-
-      {/* Bottom note */}
-      <div className="mt-10 flex items-center gap-4 border-t border-slate-200 pt-6 dark:border-slate-800">
-        <span className="h-2 w-2 rounded-full bg-violet-500" />
-
-        <p className="text-sm text-slate-500 dark:text-slate-400">
-          Always learning, experimenting, and improving through real-world
-          projects.
-        </p>
       </div>
     </section>
   );
