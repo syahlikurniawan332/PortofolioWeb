@@ -27,13 +27,7 @@ function Navbar() {
   }, []);
 
   const toggleTheme = () => {
-    setTheme((currentTheme) =>
-      currentTheme === "light" ? "dark" : "light"
-    );
-  };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
+    setTheme((current) => (current === "light" ? "dark" : "light"));
   };
 
   const navItems = [
@@ -45,13 +39,13 @@ function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-40 border-b border-[#d8d2c5] bg-[#f3efe6]/90 backdrop-blur-md dark:border-[#344238] dark:bg-[#172019]/90">
+    <nav className="sticky top-0 z-40 border-b border-[#DDD8CC] bg-[#F6F3EC]/90 backdrop-blur-md dark:border-[#3A403A] dark:bg-[#1D211D]/90">
       <div className="mx-auto max-w-6xl px-6">
         <div className="flex h-[72px] items-center justify-between">
           <a
             href="#"
-            onClick={closeMenu}
-            className="text-base font-semibold tracking-[-0.02em] text-[#263128] transition-colors hover:text-[#a85f3c] dark:text-[#ebe8df] dark:hover:text-[#d99167]"
+            onClick={() => setIsMenuOpen(false)}
+            className="text-base font-semibold tracking-[-0.02em] text-[#252A24] transition-colors hover:text-[#B56F4D] dark:text-[#EFECE4] dark:hover:text-[#D39570]"
           >
             Syahli Kurniawan
           </a>
@@ -61,7 +55,7 @@ function Navbar() {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm text-[#667066] transition-colors hover:text-[#405a45] dark:text-[#aeb8af] dark:hover:text-[#d99167]"
+                className="text-sm text-[#6F746C] transition-colors hover:text-[#52624F] dark:text-[#A7ADA5] dark:hover:text-[#D39570]"
               >
                 {item.label}
               </a>
@@ -70,7 +64,7 @@ function Navbar() {
             <button
               type="button"
               onClick={toggleTheme}
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-[#d4cec1] text-sm text-[#405a45] transition-colors hover:border-[#405a45] hover:bg-[#e8e2d5] dark:border-[#3b4a3e] dark:text-[#d8ddd7] dark:hover:border-[#738675] dark:hover:bg-[#243027]"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-[#D2CCBF] text-sm text-[#52624F] transition-colors hover:border-[#52624F] dark:border-[#3A403A] dark:text-[#EFECE4] dark:hover:border-[#A6B39F]"
               aria-label="Toggle theme"
             >
               {theme === "light" ? "☾" : "☀"}
@@ -81,7 +75,7 @@ function Navbar() {
             <button
               type="button"
               onClick={toggleTheme}
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-[#d4cec1] text-sm text-[#405a45] dark:border-[#3b4a3e] dark:text-[#d8ddd7]"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-[#D2CCBF] text-[#52624F] dark:border-[#3A403A] dark:text-[#EFECE4]"
               aria-label="Toggle theme"
             >
               {theme === "light" ? "☾" : "☀"}
@@ -90,9 +84,7 @@ function Navbar() {
             <button
               type="button"
               onClick={() => setIsMenuOpen((open) => !open)}
-              className="flex h-9 min-w-9 items-center justify-center rounded-full border border-[#d4cec1] px-3 text-xs font-medium uppercase tracking-[0.12em] text-[#405a45] dark:border-[#3b4a3e] dark:text-[#d8ddd7]"
-              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-              aria-expanded={isMenuOpen}
+              className="rounded-full border border-[#D2CCBF] px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#52624F] dark:border-[#3A403A] dark:text-[#EFECE4]"
             >
               {isMenuOpen ? "Close" : "Menu"}
             </button>
@@ -102,7 +94,7 @@ function Navbar() {
         <div
           className={`overflow-hidden transition-all duration-300 md:hidden ${
             isMenuOpen
-              ? "max-h-96 border-t border-[#d8d2c5] dark:border-[#344238]"
+              ? "max-h-96 border-t border-[#DDD8CC] dark:border-[#3A403A]"
               : "max-h-0"
           }`}
         >
@@ -111,11 +103,12 @@ function Navbar() {
               <a
                 key={item.href}
                 href={item.href}
-                onClick={closeMenu}
-                className="flex items-center justify-between border-b border-[#ddd7cb] py-4 text-sm text-[#4c594e] transition-colors last:border-none hover:text-[#a85f3c] dark:border-[#2d3a30] dark:text-[#b7c0b8] dark:hover:text-[#d99167]"
+                onClick={() => setIsMenuOpen(false)}
+                className="flex items-center justify-between border-b border-[#DDD8CC] py-4 text-sm text-[#52624F] last:border-none dark:border-[#3A403A] dark:text-[#A7ADA5]"
               >
-                <span>{item.label}</span>
-                <span className="font-mono text-xs text-[#9b958a]">
+                {item.label}
+
+                <span className="font-mono text-xs text-[#969188]">
                   0{index + 1}
                 </span>
               </a>

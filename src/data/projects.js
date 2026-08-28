@@ -111,14 +111,18 @@ const projects = [
     id: 4,
     title: "Guakit",
     subtitle: "Personal Shopping & Delivery Platform",
-    category: "Team Project",
+    category: "Client Project",
     type: "Team",
-    status: "Local",
+    status: "Private Project",
+
     description:
-      "Aplikasi jasa titip barang yang menghubungkan user, produsen, dan driver dalam proses pemesanan hingga pengiriman barang.",
+      "A collaborative personal shopping and delivery platform that connects customers, merchants, and drivers throughout the ordering and delivery process.",
+
     technologies: ["Laravel", "PHP", "MySQL", "Tailwind CSS", "JavaScript"],
+
     contribution:
-      "Berfokus pada pengembangan frontend dan implementasi antarmuka berdasarkan kebutuhan sistem serta alur pengguna.",
+      "Focused on frontend development and interface implementation based on system requirements and user workflows.",
+
     features: [
       "Multi-role system",
       "Product ordering",
@@ -129,9 +133,12 @@ const projects = [
       "Admin monitoring",
       "Manual payout management",
     ],
+
     github: "",
     demo: "",
+
     image: "/images/projects/guakit/01-home.jpg",
+
     screenshots: [
       "/images/projects/guakit/01-home.jpg",
       "/images/projects/guakit/02-order.jpg",
