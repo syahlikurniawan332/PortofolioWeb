@@ -83,10 +83,10 @@ const projects = [
     type: "Individual",
     status: "Local",
     description:
-      "Aplikasi manajemen apotek untuk mengelola obat, stok, transaksi, kadaluarsa, serta aktivitas admin dan apoteker.",
+      "A pharmacy management application designed to manage medicines, inventory, transactions, expiration dates, and daily activities for administrators and pharmacists.",
     technologies: ["Laravel", "PHP", "MySQL", "Tailwind CSS", "JavaScript"],
     contribution:
-      "Mengembangkan sistem dengan role admin dan apoteker, termasuk pengelolaan obat, transaksi multi-item, stok otomatis, monitoring kadaluarsa, serta dashboard informasi.",
+      "Developed the system with separate administrator and pharmacist roles, including medicine management, multi-item transactions, automatic stock updates, expiration monitoring, and an informational dashboard.",
     features: [
       "Role-based access",
       "Medicine management",
