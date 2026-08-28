@@ -12,8 +12,8 @@
     "Segoe UI",
     sans-serif;
 
-  color: #263128;
-  background: #f3efe6;
+  color: #252a24;
+  background: #f6f3ec;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,14 +21,15 @@
 
 html {
   scroll-behavior: smooth;
-  background: #f3efe6;
+  background: #f6f3ec;
 }
 
 body {
   margin: 0;
   min-width: 320px;
-  background: #f3efe6;
-  color: #263128;
+
+  background: #f6f3ec;
+  color: #252a24;
 
   transition:
     background-color 0.3s ease,
@@ -36,17 +37,17 @@ body {
 }
 
 ::selection {
-  background: #405a45;
+  background: #52624f;
   color: #ffffff;
 }
 
 html.dark,
 html.dark body {
-  background: #172019;
-  color: #ebe8df;
+  background: #1d211d;
+  color: #efece4;
 }
 
 html.dark ::selection {
-  background: #c17b51;
-  color: #172019;
+  background: #d39570;
+  color: #1d211d;
 }
