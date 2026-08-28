@@ -12,7 +12,6 @@ function Navbar() {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  // Close mobile menu when pressing Escape
   useEffect(() => {
     const handleEscape = (event) => {
       if (event.key === "Escape") {
@@ -39,95 +38,86 @@ function Navbar() {
 
   const navItems = [
     { label: "About", href: "#about" },
-    { label: "Skills", href: "#skills" },
+    { label: "Work", href: "#projects" },
     { label: "Experience", href: "#experience" },
-    { label: "Projects", href: "#projects" },
+    { label: "Skills", href: "#skills" },
     { label: "Contact", href: "#contact" },
   ];
 
   return (
-    <nav className="sticky top-0 z-40 border-b border-slate-200 bg-white/80 backdrop-blur dark:border-slate-700 dark:bg-slate-900/80">
+    <nav className="sticky top-0 z-40 border-b border-[#d8d2c5] bg-[#f3efe6]/90 backdrop-blur-md dark:border-[#344238] dark:bg-[#172019]/90">
       <div className="mx-auto max-w-6xl px-6">
-        {/* Main Navbar */}
-        <div className="flex h-[73px] items-center justify-between">
-          {/* Logo / Name */}
+        <div className="flex h-[72px] items-center justify-between">
           <a
             href="#"
             onClick={closeMenu}
-            className="font-semibold tracking-tight text-slate-900 dark:text-slate-100"
+            className="text-base font-semibold tracking-[-0.02em] text-[#263128] transition-colors hover:text-[#a85f3c] dark:text-[#ebe8df] dark:hover:text-[#d99167]"
           >
             Syahli Kurniawan
           </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden items-center gap-6 md:flex">
+          <div className="hidden items-center gap-8 md:flex">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm text-slate-500 transition-colors hover:text-violet-600 dark:text-slate-400 dark:hover:text-violet-400"
+                className="text-sm text-[#667066] transition-colors hover:text-[#405a45] dark:text-[#aeb8af] dark:hover:text-[#d99167]"
               >
                 {item.label}
               </a>
             ))}
 
-            {/* Theme Toggle */}
             <button
               type="button"
               onClick={toggleTheme}
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-100 text-slate-700 transition-colors hover:bg-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-[#d4cec1] text-sm text-[#405a45] transition-colors hover:border-[#405a45] hover:bg-[#e8e2d5] dark:border-[#3b4a3e] dark:text-[#d8ddd7] dark:hover:border-[#738675] dark:hover:bg-[#243027]"
               aria-label="Toggle theme"
             >
               {theme === "light" ? "☾" : "☀"}
             </button>
           </div>
 
-          {/* Mobile Controls */}
           <div className="flex items-center gap-2 md:hidden">
-            {/* Theme Toggle */}
             <button
               type="button"
               onClick={toggleTheme}
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-100 text-slate-700 transition-colors hover:bg-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-[#d4cec1] text-sm text-[#405a45] dark:border-[#3b4a3e] dark:text-[#d8ddd7]"
               aria-label="Toggle theme"
             >
               {theme === "light" ? "☾" : "☀"}
             </button>
 
-            {/* Hamburger */}
             <button
               type="button"
               onClick={() => setIsMenuOpen((open) => !open)}
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-100 text-slate-700 transition-colors hover:bg-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
+              className="flex h-9 min-w-9 items-center justify-center rounded-full border border-[#d4cec1] px-3 text-xs font-medium uppercase tracking-[0.12em] text-[#405a45] dark:border-[#3b4a3e] dark:text-[#d8ddd7]"
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMenuOpen}
             >
-              {isMenuOpen ? (
-                <span className="text-lg">✕</span>
-              ) : (
-                <span className="text-lg">☰</span>
-              )}
+              {isMenuOpen ? "Close" : "Menu"}
             </button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         <div
           className={`overflow-hidden transition-all duration-300 md:hidden ${
             isMenuOpen
-              ? "max-h-96 border-t border-slate-200 dark:border-slate-700"
+              ? "max-h-96 border-t border-[#d8d2c5] dark:border-[#344238]"
               : "max-h-0"
           }`}
         >
-          <div className="py-3">
-            {navItems.map((item) => (
+          <div className="py-4">
+            {navItems.map((item, index) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={closeMenu}
-                className="block rounded-lg px-3 py-3 text-sm text-slate-600 transition-colors hover:bg-slate-100 hover:text-violet-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-violet-400"
+                className="flex items-center justify-between border-b border-[#ddd7cb] py-4 text-sm text-[#4c594e] transition-colors last:border-none hover:text-[#a85f3c] dark:border-[#2d3a30] dark:text-[#b7c0b8] dark:hover:text-[#d99167]"
               >
-                {item.label}
+                <span>{item.label}</span>
+                <span className="font-mono text-xs text-[#9b958a]">
+                  0{index + 1}
+                </span>
               </a>
             ))}
           </div>
