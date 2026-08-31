@@ -2,122 +2,95 @@ import { useState } from "react";
 import projects from "../data/projects";
 import ProjectDetail from "./ProjectDetail";
 
-function Projects() {
+export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section
-      id="projects"
-      className="mx-auto max-w-6xl px-6 py-24 md:py-32"
-    >
-      <div className="grid gap-8 border-b border-[#DDD8CC] pb-10 md:grid-cols-[0.8fr_1.2fr] dark:border-[#3A403A]">
-        <div className="flex items-start gap-3">
-          <span className="mt-2 h-px w-8 bg-[#B56F4D] dark:bg-[#D39570]" />
+    <>
+      <section
+        id="projects"
+        className="border-y border-[#DDD8CC] bg-[#FFFCF6] dark:border-[#3A403A] dark:bg-[#252A25]"
+      >
+        <div className="mx-auto max-w-6xl px-6 py-20 md:py-24">
+          <div className="mb-10 grid gap-5 md:grid-cols-[1fr_0.8fr] md:items-end">
+            <div>
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-[#B56F4D] dark:text-[#D39570]">
+                Selected Work
+              </p>
 
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6F746C] dark:text-[#A7ADA5]">
-            Selected Work
-          </p>
-        </div>
-
-        <div>
-          <h2 className="text-3xl font-semibold tracking-[-0.04em] text-[#252A24] md:text-5xl dark:text-[#EFECE4]">
-            Projects built around
-            <span className="block text-[#52624F] dark:text-[#A6B39F]">
-              real problems and practical needs.
-            </span>
-          </h2>
-
-          <p className="mt-5 max-w-xl leading-7 text-[#6F746C] dark:text-[#A7ADA5]">
-            A selection of individual, academic, and collaborative projects
-            covering web development, backend systems, and applied machine
-            learning.
-          </p>
-        </div>
-      </div>
-
-      {projects.map((project) => (
-        <article
-          key={project.id}
-          className="group grid gap-7 border-b border-[#DDD8CC] py-10 md:grid-cols-[0.75fr_1.25fr] md:items-center md:py-14 dark:border-[#3A403A]"
-        >
-          <div className="relative overflow-hidden rounded-[1.5rem] bg-[#E5DFD3] dark:bg-[#252A25]">
-            <img
-              src={project.image}
-              alt={`${project.title} preview`}
-              className="aspect-[16/10] w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-            />
-
-            <div className="absolute left-4 top-4 flex gap-2">
-              <span className="rounded-full bg-[#1D211D]/85 px-3 py-1.5 font-mono text-xs text-white">
-                {String(project.id).padStart(2, "0")}
-              </span>
-
-              <span className="rounded-full bg-[#F6F3EC]/90 px-3 py-1.5 text-xs font-medium text-[#52624F]">
-                {project.category}
-              </span>
-            </div>
-          </div>
-
-          <div className="md:pl-8">
-            <div className="flex flex-wrap items-start justify-between gap-4">
-              <div>
-                <h3 className="text-2xl font-semibold tracking-[-0.03em] text-[#252A24] md:text-3xl dark:text-[#EFECE4]">
-                  {project.title}
-                </h3>
-
-                <p className="mt-2 text-sm text-[#747A73] dark:text-[#969F97]">
-                  {project.subtitle}
-                </p>
-              </div>
-
-              <span className="rounded-full border border-[#D2CCBF] px-3 py-1.5 text-xs text-[#586159] dark:border-[#3A403A] dark:text-[#A7ADA5]">
-                {project.type}
-              </span>
+              <h2 className="max-w-2xl text-3xl font-semibold leading-tight tracking-tight text-[#252A24] dark:text-[#EFECE4] md:text-4xl">
+                Projects built around real problems and practical needs.
+              </h2>
             </div>
 
-            <p className="mt-6 leading-7 text-[#6F746C] dark:text-[#A7ADA5]">
-              {project.description}
+            <p className="max-w-md text-sm leading-6 text-[#6F746C] dark:text-[#A7ADA5] md:justify-self-end">
+              A selection of academic, personal, and collaborative projects
+              covering web development and applied machine learning.
             </p>
-
-            <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
-              {project.technologies.map((technology) => (
-                <span
-                  key={technology}
-                  className="text-xs font-medium text-[#6F746C] dark:text-[#A7ADA5]"
-                >
-                  {technology}
-                </span>
-              ))}
-            </div>
-
-            <div className="mt-8 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <span
-                  className={`h-2 w-2 rounded-full ${
-                    project.status === "Live"
-                      ? "bg-[#52624F] dark:bg-[#A6B39F]"
-                      : "bg-[#B56F4D] dark:bg-[#D39570]"
-                  }`}
-                />
-
-                <span className="text-xs text-[#6F746C] dark:text-[#A7ADA5]">
-                  {project.status}
-                </span>
-              </div>
-
-              <button
-                onClick={() => setSelectedProject(project)}
-                className="group/button flex items-center gap-3 text-sm font-semibold text-[#52624F] hover:text-[#B56F4D] dark:text-[#A6B39F] dark:hover:text-[#D39570]"
-              >
-                View case study
-                <span className="transition-transform group-hover/button:translate-x-1">
-                  →
-                </span>
-              </button>
-            </div>
           </div>
-        </article>
-      ))}
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {projects.map((project) => (
+              <article
+                key={project.id}
+                className="group overflow-hidden rounded-2xl border border-[#DDD8CC] bg-[#F6F3EC] transition duration-300 hover:-translate-y-1 hover:border-[#B8B1A3] dark:border-[#3A403A] dark:bg-[#1D211D] dark:hover:border-[#555D55]"
+              >
+                <button
+                  type="button"
+                  onClick={() => setSelectedProject(project)}
+                  className="block w-full cursor-pointer text-left"
+                >
+                  <div className="aspect-[16/9] overflow-hidden bg-[#E9E4D9] dark:bg-[#202520]">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.025]"
+                    />
+                  </div>
+
+                  <div className="p-6">
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                      <span className="text-xs font-semibold uppercase tracking-[0.14em] text-[#52624F] dark:text-[#A6B39F]">
+                        {project.category}
+                      </span>
+
+                      <div className="flex items-center gap-2 text-xs text-[#6F746C] dark:text-[#A7ADA5]">
+                        <span
+                          className={`h-2 w-2 rounded-full ${
+                            project.status === "Live"
+                              ? "bg-[#52624F] dark:bg-[#A6B39F]"
+                              : "bg-[#B56F4D] dark:bg-[#D39570]"
+                          }`}
+                        />
+
+                        {project.status}
+                      </div>
+                    </div>
+
+                    <h3 className="mt-4 text-xl font-semibold tracking-tight text-[#252A24] dark:text-[#EFECE4]">
+                      {project.title}
+                    </h3>
+
+                    <p className="mt-1 text-sm text-[#6F746C] dark:text-[#A7ADA5]">
+                      {project.subtitle}
+                    </p>
+
+                    <div className="mt-5 flex items-center justify-between border-t border-[#DDD8CC] pt-4 dark:border-[#3A403A]">
+                      <span className="text-xs text-[#6F746C] dark:text-[#A7ADA5]">
+                        {project.type}
+                      </span>
+
+                      <span className="text-sm font-semibold text-[#B56F4D] transition group-hover:translate-x-1 dark:text-[#D39570]">
+                        View case study →
+                      </span>
+                    </div>
+                  </div>
+                </button>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {selectedProject && (
         <ProjectDetail
@@ -125,8 +98,6 @@ function Projects() {
           onClose={() => setSelectedProject(null)}
         />
       )}
-    </section>
+    </>
   );
 }
-
-export default Projects;

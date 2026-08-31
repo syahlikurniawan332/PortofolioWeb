@@ -10,7 +10,7 @@ const experiences = [
   {
     company: "PT Ibinet Nusatindo",
     role: "Network Technician",
-    period: "2025",
+    period: "Jan 2026 – Mar 2026",
     description:
       "Handled internet network installation, connection troubleshooting, network maintenance, and customer guidance related to internet services.",
     tech: ["Networking", "Troubleshooting", "Customer Support"],
@@ -25,7 +25,7 @@ const experiences = [
   },
   {
     company: "PT Codinglab Integritas Indonesia",
-    role: "Web Junior Intern",
+    role: "Web Development Intern",
     period: "Mar 2024 – Aug 2024",
     description:
       "Developed web applications using Laravel, PHP, JavaScript, and MySQL, implemented application features, performed debugging and testing, and collaborated using Git and GitHub.",
