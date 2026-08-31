@@ -81,7 +81,7 @@ const projects = [
     subtitle: "Inventory & Transaction Management",
     category: "Web Application",
     type: "Individual",
-    status: "Local",
+    status: "Live",
     description:
       "A pharmacy management application designed to manage medicines, inventory, transactions, expiration dates, and daily activities for administrators and pharmacists.",
     technologies: ["Laravel", "PHP", "MySQL", "Tailwind CSS", "JavaScript"],
@@ -97,8 +97,8 @@ const projects = [
       "Transaction history",
       "Dashboard & charts",
     ],
-    github: "",
-    demo: "",
+    github: "https://github.com/syahlikurniawan332/DesemberSistemApotek",
+    demo: "http://apotek-hijau.free.je/login",
     image: "/images/projects/pharmacy/01-dashboard.jpg",
     screenshots: [
       "/images/projects/pharmacy/01-dashboard.jpg",
