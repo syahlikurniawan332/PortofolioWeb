@@ -1,7 +1,7 @@
 const experiences = [
   {
     company: "Balai Diklat Industri Medan",
-    role: "Programmer Intern",
+    role: "Programmer",
     period: "2026 – Present",
     description:
       "Contribute to web application development and maintenance, review existing systems, implement new features, and perform testing and debugging in collaboration with the team.",
